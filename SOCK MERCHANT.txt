@@ -1,57 +1,28 @@
-#include <stdio.h>
-#include <stdlib.h>
-int menu();
-void Sock_Merchant();
-int main(){
-	int x;
+#include <bits/stdc++.h>
 
-	do{
-	x=menu();
-	switch(x)
-	{
-		case 1: Sock_Merchant();
-		break;
-		case 2: 	printf(" \t\nHA TERMINADO EL PROGRAMA\n ");
-		break;
-		default : 	printf(" \tOPCION INCORRECTA\t\n");
-	}
+using namespace std;
 
-}while(x!=2);
-}//fin del main
+int arr[101]{0};
 
-int menu(){
-	int opc;
-	system("cls");
-	printf(" \t\tMENU\t\t\n");
-	printf(" \t1)INICIAR SOCK MEARCHANT\n ");
-	printf(" \t2)SALIR DEL PROGRAMA\n");
-	printf(" \tSELECCIONE UNA OPCION:\t");
-	scanf("%d",&opc);
-	return opc;
+int main() { 
+    int n;
+     cin >> n; 
+     int a[n];
+
+for(int i=0; i<n; i++) {
+    cin >> a[i];
 }
-void Sock_Merchant()
-{
-int n,i,j,c,count=0;
-	system("cls");
-printf("\nINGRESE LA CANTIDAD DE CALCETINES: ");
-scanf("%d",&n);
-int arr[n];
-for(i=0;i<n;i++){
-printf("\nINGRESE EL NUMERO DEL CALCETIN#%d: ",i+1);
-scanf("%d",&arr[i]);
-}
-for(i=0;i<n;i++){
-    c=1;
-    if(arr[i]!=0){
-        for(j=i+1;j<n;j++){
-        if(arr[i]==arr[j]){
-            c++;
-            arr[j]=0;
-        }
-    }
-    count+=c/2;
+
+int count{0};
+
+for(int i=0; i<n; i++) {
+    if(arr[a[i]] == 0) {
+        arr[a[i]] = 1;
+    } else {
+        arr[a[i]] = 0;
+        ++count;
     }
 }
-printf("\nLOS PARES DE LOS CALCETINES SON: %d\n",count);
-system("pause");	
+
+cout << count;
 }
